@@ -1,0 +1,7 @@
+<div>
+    <form #groupForm="ngForm" (ngSubmit)="onNgSubmit()" novalidate>
+        <input type="hidden" name="id" [(ngModel)]="group.id" #id="ngModel" required>
+        <input type="text" name="name" [(ngModel)]="group.name" placeholder="이름을 입력하세요." #id="ngModel" required>
+        <button>저장</button>
+    </form>
+</div>

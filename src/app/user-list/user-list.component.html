@@ -1,0 +1,14 @@
+<div>
+    <table>
+        <tr>
+            <td>#</td>
+            <td>이름</td>
+            <td>이메일</td>
+        </tr>
+        <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+        </tr>
+    </table>
+</div>
