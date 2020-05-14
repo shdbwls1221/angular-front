@@ -10,13 +10,15 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserService } from './service/user.service';
 import { GroupFormComponent } from './group-form/group-form.component';
 import { GroupListComponent } from './group-list/group-list.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     GroupFormComponent,
-    GroupListComponent
+    GroupListComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,

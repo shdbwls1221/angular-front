@@ -18,11 +18,18 @@ export class GroupFormComponent implements OnInit {
               private router: Router) { }
 
   onNgSubmit() {
-    this.groupService.modifyGroup(this.group);
-    this.goUserList();
+    if (!this.group.id){
+      this.groupService.addGroup(this.group).subscribe(() => {
+        this.goGroupList();
+      });
+    } else{
+      this.groupService.modifyGroup(this.group).subscribe(() => {
+        this.goGroupList();
+      });
+    }
   }
 
-  goUserList() {
+  goGroupList() {
     this.router.navigate(['/']);
   }
 

@@ -1,3 +1,5 @@
+<div><button (click)="goGroupList()">뒤로</button></div>
+<br>
 <div>
     <form #groupForm="ngForm" (ngSubmit)="onNgSubmit()" novalidate>
         <input type="hidden" name="id" [(ngModel)]="group.id" #id="ngModel" required>

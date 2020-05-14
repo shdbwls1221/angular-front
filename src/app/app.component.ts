@@ -8,12 +8,12 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
-  title = 'angular02';
+  title = 'yoojin-angular';
 
   constructor(private router: Router) {
   }
 
   ngOnInit() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/group']);
   }
 }

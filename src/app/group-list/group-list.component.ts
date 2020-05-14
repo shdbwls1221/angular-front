@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GroupService } from '../service/group.service';
 import { Group } from '../model/group';
 
@@ -10,13 +11,17 @@ import { Group } from '../model/group';
 })
 export class GroupListComponent implements OnInit {
 
-  selectedGroupId: string;
   groups: Group[];
 
-  constructor(private groupService: GroupService) { }
+  constructor(private groupService: GroupService,
+              private router: Router) { }
 
-  clickTabMenu(groupId: string){
-    this.selectedGroupId = groupId;
+  delGroup(groupId: string){
+    this.groupService.deleteGroup(groupId).subscribe(() => {
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/group']);
+      });
+    });
   }
 
   ngOnInit() {

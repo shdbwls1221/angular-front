@@ -1,14 +1,22 @@
 <div>
+    <div><button (click)="onGoBack()">뒤로가기</button></div>
+    <br>
     <table>
         <tr>
             <td>#</td>
-            <td>�̸�</td>
-            <td>�̸���</td>
+            <td>이름</td>
+            <td>이메일</td>
         </tr>
         <tr *ngFor="let user of users">
             <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
+            <td><button routerLink="/group/{{groupId}}/user/{{ user.id }}">수정</button></td>
+            <td><button (click)="delUser((user.id))">삭제</button></td>
         </tr>
     </table>
+    <div>
+        <br>
+    <button routerLink="/group/{{groupId}}/user/new">추가</button>
+    </div>
 </div>

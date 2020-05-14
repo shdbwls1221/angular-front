@@ -1,6 +1,8 @@
+import { Group } from './group';
+
 export class User {
     id: string;
-    groupId: string;
     name: string;
     email: string;
+    group: Group = new Group();
 }

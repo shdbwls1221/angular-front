@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../service/user.service';
 import { User } from '../model/user';
 
@@ -13,13 +13,26 @@ export class UserListComponent implements OnInit {
   users: User[];
   groupId: string;
 
-  constructor(private userService: UserService, private route: ActivatedRoute) {
+  constructor(private userService: UserService,
+              private route: ActivatedRoute,
+              private router: Router) {  }
+
+  onGoBack(){
+    this.router.navigate(['/']);
+  }
+
+  delUser(userId: string){
+    this.userService.deleteUser(userId).subscribe(() => {
+      // 새로고침
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/group/' + this.groupId + '/users']);
+      });
+    });
   }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.groupId = params.get('groupId');
-      if (!this.groupId) { return; }
       this.userService.findAllUsers(this.groupId).subscribe(data => {
         this.users = data.users;
       });

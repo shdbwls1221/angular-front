@@ -5,10 +5,14 @@
 			<a>{{ group.name }}</a>
 		</td>
 		<td>
-			<button routerLink="/{{ group.id }}/users">Á¶È¸</button>
-			<button routerLink="/{{ group.id }}">¼öÁ¤</button>
-			<button>»èÁ¦</button>
+			<button routerLink="/group/{{ group.id }}/users">ì¡°íšŒ</button>
+			<button routerLink="/group/{{ group.id }}">ìˆ˜ì •</button>
+		<button (click)="delGroup((group.id))">ì‚­ì œ</button>
 		</td>
 	</tr>
+	<br>
+	<div>
+		<button routerLink="/group/new">ì¶”ê°€</button>
+	</div>
 	</table>
 </div>

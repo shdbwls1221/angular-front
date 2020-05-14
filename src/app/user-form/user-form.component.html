@@ -1,0 +1,10 @@
+<div><button (click)="goUserList()">뒤로</button></div>
+<br>
+<div>
+    <form #groupForm="ngForm" (ngSubmit)="onNgSubmit()" novalidate>
+        <input type="hidden" name="id" [(ngModel)]="user.id" #id="ngModel" required>
+        <input type="text" name="name" [(ngModel)]="user.name" placeholder="이름을 입력하세요." #id="ngModel" required>
+        <input type="text" name="name" [(ngModel)]="user.email" placeholder="이메일을 입력하세요." #id="ngModel" required>
+        <button>저장</button>
+    </form>
+</div>
