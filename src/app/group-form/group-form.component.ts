@@ -23,7 +23,7 @@ export class GroupFormComponent implements OnInit {
   }
 
   goUserList() {
-    this.router.navigate(['']);
+    this.router.navigate(['/']);
   }
 
   ngOnInit(): void {

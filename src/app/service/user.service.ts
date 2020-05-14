@@ -9,6 +9,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public findAllUsers(groupId: string): Observable<Group> {
-    return this.http.get<Group>('http://localhost:8080/group/' + groupId);
+    return this.http.get<Group>('http://localhost:8081/group/' + groupId);
   }
 }

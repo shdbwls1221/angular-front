@@ -1,0 +1,14 @@
+<div class="tabMenu">
+	<table>
+	<tr *ngFor="let group of groups">
+		<td>
+			<a>{{ group.name }}</a>
+		</td>
+		<td>
+			<button routerLink="/{{ group.id }}/users">조회</button>
+			<button routerLink="/{{ group.id }}">수정</button>
+			<button>삭제</button>
+		</td>
+	</tr>
+	</table>
+</div>

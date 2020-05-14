@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class GroupService {
 
-  url = 'http://localhost:8080';
+  url = 'http://localhost:8081';
   group: Group;
 
   constructor(private http: HttpClient) {
@@ -21,7 +21,7 @@ export class GroupService {
   }
 
   public modifyGroup(chngGroup: Group): Observable<any> {
-    this.http.put(this.url + '/group/' + chngGroup.id, chngGroup);
+    return this.http.put(this.url + '/group/' + chngGroup.id, chngGroup);
   }
 
 }

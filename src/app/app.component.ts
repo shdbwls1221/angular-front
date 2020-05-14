@@ -1,30 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { GroupService } from './service/group.service';
-import { Group } from './model/group';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [GroupService]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
 
   title = 'angular02';
-  selectedGroupId: string;
-  groups: Group[];
 
-  constructor(private groupService: GroupService) {
-  }
-
-  clickTabMenu(groupId: string){
-    this.selectedGroupId = groupId;
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
-    //모든 그룹 정보
-    this.groupService.findAll().subscribe(data => {
-      this.groups = data;
-    });
+    this.router.navigate(['/']);
   }
 }
