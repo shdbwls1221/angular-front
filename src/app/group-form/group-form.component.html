@@ -1,9 +1,19 @@
-<div><button (click)="goGroupList()">뒤로</button></div>
+<div>
+    <button (click)="goGroupList()">뒤로</button>
+</div>
 <br>
 <div>
     <form #groupForm="ngForm" (ngSubmit)="onNgSubmit()" novalidate>
-        <input type="hidden" name="id" [(ngModel)]="group.id" #id="ngModel" required>
-        <input type="text" name="name" [(ngModel)]="group.name" placeholder="이름을 입력하세요." #id="ngModel" required>
-        <button>저장</button>
+        <input type="hidden" name="id" [(ngModel)]="group.id" #id="ngModel">
+        <div>
+            <input type="text" name="name" [(ngModel)]="group.name" placeholder="그룹 이름" #name="ngModel" required>
+            <button type="submit" [disabled]="groupForm.invalid">저장</button>
+        </div>
+        <br>
+        <div>
+            <em *ngIf="name.errors?.required && name.touched">
+                                그룹 이름을 입력해주세요!
+            </em>
+        </div>
     </form>
 </div>
